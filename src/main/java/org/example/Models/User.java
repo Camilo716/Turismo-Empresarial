@@ -9,10 +9,6 @@ public class User {
     private Integer location;
     private String mail;
 
-
-    public User() {
-    }
-
     public User(Integer id, String name, String document, Integer location, String mail) {
         this.id = id;
         this.name = name;
