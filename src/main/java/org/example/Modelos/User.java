@@ -1,7 +1,7 @@
-package org.example.modelos;
+package org.example.Modelos;
 
 
-public class Usuario{
+public class User {
 
     //ATRIBUTOS=VARIABLES=DATOS
     private Integer id;
@@ -16,10 +16,10 @@ public class Usuario{
     //METODOS=FUNCIONES=ACCIONES
     //METODOS ESPECIALES
 
-    public Usuario() { //constructor vacio
+    public User() { //constructor vacio
     }
 
-    public Usuario(Integer id, String nombres, String documento, Integer ubicacion, String correoElectronico) {
+    public User(Integer id, String nombres, String documento, Integer ubicacion, String correoElectronico) {
         this.id = id;
         this.nombres = nombres;
         this.documento = documento;
