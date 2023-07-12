@@ -9,6 +9,7 @@
         <module name="TurismoAPP" />
         <module name="Empresarialproyectodemateria1" />
         <module name="turismoempresarial2023-2" />
+        <module name="Turismo-Empresarial" />
       </profile>
     </annotationProcessing>
   </component>
