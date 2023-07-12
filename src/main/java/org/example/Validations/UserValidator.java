@@ -12,12 +12,16 @@ public class UserValidator {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(names);
 
-        if (matcher.matches()) {
-            return true;
-        }
-        else{
+        boolean notMatchesWithPattern = !matcher.matches();
+        boolean tooShortName = names.length()<10;
+
+        if (notMatchesWithPattern) {
             throw new Exception("Name can´t contain numbers or symbols");
+        }else if (tooShortName){
+            throw new Exception("Name is too short");
         }
+
+        return true;
 
     }
 }
