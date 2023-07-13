@@ -1,2 +1,2 @@
-# Turismo Empresarial
+# Business Tourism
 A group of entrepreneurs have an idea to centralize information from different venues such as theaters, restaurants, hotels, centers commercials and academies that allow sharing and expanding the agenda culture of the "Valle de aburrá", this application will have the capacity to display information about a specific offer or event, as well as the possibility of booking in said event,
