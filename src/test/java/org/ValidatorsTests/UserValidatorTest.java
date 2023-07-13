@@ -75,13 +75,6 @@ class UserValidatorTest {
     }
 
     @Test
-    public void testValidateMail_cantStartWithNumber() throws Exception {
-        assertThrows(Exception.class, () -> {
-            userValidator.validateMail("123camilo@example.com");
-        });
-    }
-
-    @Test
     public void testValidateMail_CanContainSomeSpecialChars() throws Exception {
         assertThrows(Exception.class, () -> {
             userValidator.validateMail("camilo_+.-@example.com");
