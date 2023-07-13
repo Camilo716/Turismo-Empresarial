@@ -2,7 +2,8 @@ package org.ValidatorsTests;
 
 import org.example.Validators.UserValidator;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class UserValidatorTest {
 
@@ -25,6 +26,18 @@ class UserValidatorTest {
         // Act and Assert
         assertThrows(Exception.class, () -> {
             userValidator.validateName("Camilo716");
+        });
+    }
+
+    @Test
+    public void testValidateName_AllowÑ() {
+        // Arrange
+        UserValidator userValidator = new UserValidator();
+
+        // Act and Assert
+        assertDoesNotThrow(() -> {
+            boolean result = userValidator.validateName("ÑecaBikuñeta");
+            assertTrue(result);
         });
     }
 
