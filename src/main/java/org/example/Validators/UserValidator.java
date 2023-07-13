@@ -3,7 +3,7 @@ package org.example.Validators;
 import org.example.Util.Regex;
 
 public class UserValidator {
-    public Boolean validateName(String names)throws Exception{
+    public Boolean validateName(String names)throws Exception {
         String regex = "^[a-zA-ZñÑ ]+$";
 
         boolean notMatchesPattern = !Regex.matchesPattern(names, regex);
@@ -17,5 +17,13 @@ public class UserValidator {
 
         return true;
 
+    }
+
+    public void validateLocation(int locationNumber)throws Exception {
+        boolean isHigherThan4 = locationNumber > 4;
+
+        if (isHigherThan4){
+            throw new Exception("Location can't be higher than 4");
+        }
     }
 }
