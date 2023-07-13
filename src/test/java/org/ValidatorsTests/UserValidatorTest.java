@@ -4,6 +4,8 @@ import org.example.Validators.UserValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.ExecutionException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserValidatorTest {
@@ -22,7 +24,7 @@ class UserValidatorTest {
     }
 
     @Test
-    public void testValidateName_tooShortName() throws Exception {
+    public void testValidateName_TooShortName() throws Exception {
         assertThrows(Exception.class, () -> {
             userValidator.validateName("Camilo716");
         });
@@ -45,10 +47,16 @@ class UserValidatorTest {
     }
 
     @Test
-    public void testValidateLocation_Above4()
-    {
+    public void testValidateLocation_Above4() throws Exception {
         assertThrows(Exception.class, () -> {
             userValidator.validateLocation(5);
+        });
+    }
+
+    @Test
+    public void testValidateLocation_Below1() throws Exception {
+        assertThrows(Exception.class, () -> {
+            userValidator.validateLocation(0);
         });
     }
 
