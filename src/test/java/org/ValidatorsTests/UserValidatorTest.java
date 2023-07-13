@@ -41,5 +41,17 @@ class UserValidatorTest {
         });
     }
 
+    @Test
+    public void testValidateName_AllowBlankSpaces() {
+        // Arrange
+        UserValidator userValidator = new UserValidator();
+
+        // Act and Assert
+        assertDoesNotThrow(() -> {
+            boolean result = userValidator.validateName("Camilo Gonzalez");
+            assertTrue(result);
+        });
+    }
+
 
 }
