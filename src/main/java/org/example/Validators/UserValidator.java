@@ -32,12 +32,12 @@ public class UserValidator {
     public Boolean validateMail(String mail) throws Exception {
         String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
         boolean notMatchesPattern = !Regex.matchesPattern(mail, regex);
-        boolean doesNotStartWithNumber = !Character.isDigit(mail.charAt(0));
+        boolean startWithNumber = Character.isDigit(mail.charAt(0));
         boolean doesNotContainAtSign = !mail.contains("@");
 
         if (notMatchesPattern){
             throw new Exception("Must be a valid mail");
-        } else if (doesNotStartWithNumber) {
+        } else if (startWithNumber) {
             throw new Exception("Mail can't start with number");
         } else if (doesNotContainAtSign) {
             throw new Exception("Mail must contain at sign");
