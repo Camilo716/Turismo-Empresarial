@@ -1,12 +1,9 @@
-package org.example.Validations;
+package org.example.Validators;
 
 import org.example.Util.Regex;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class UserValidator {
-    public Boolean validateNames(String names)throws Exception{
+    public Boolean validateName(String names)throws Exception{
         String regex = "^[a-zA-Z]+$";
 
         boolean notMatchesPattern = !Regex.matchesPattern(names, regex);
