@@ -7,7 +7,9 @@ import java.util.regex.Pattern;
 
 public class UserValidator {
     public Boolean validateNames(String names)throws Exception{
-        boolean notMatchesPattern = !Regex.matchesPattern(names, "^[a-zA-Z]+$");
+        String regex = "^[a-zA-Z]+$";
+
+        boolean notMatchesPattern = !Regex.matchesPattern(names, regex);
         boolean tooShortName = names.length()<10;
 
         if (notMatchesPattern) {
