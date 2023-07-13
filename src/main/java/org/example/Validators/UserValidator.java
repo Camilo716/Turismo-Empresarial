@@ -4,7 +4,7 @@ import org.example.Util.Regex;
 
 public class UserValidator {
     public Boolean validateName(String names)throws Exception{
-        String regex = "^[a-zA-ZñÑ]+$";
+        String regex = "^[a-zA-ZñÑ ]+$";
 
         boolean notMatchesPattern = !Regex.matchesPattern(names, regex);
         boolean tooShortName = names.length()<10;
