@@ -16,6 +16,9 @@ public class Offer {
     private Double costPerPerson;
 
 
+    private Integer localId;
+
+
     public Offer(Integer id, String tittle, String description, LocalDate startDate, LocalDate endDate, Double costPerPerson, Integer idLocal) {
         this.id = id;
         this.tittle = tittle;
@@ -71,6 +74,14 @@ public class Offer {
 
     public void setCostPerPerson(Double costPerPerson) {
         this.costPerPerson = costPerPerson;
+    }
+
+    public Integer getLocalId() {
+        return localId;
+    }
+
+    public void setLocalId(Integer localId) {
+        this.localId = localId;
     }
 }
 
