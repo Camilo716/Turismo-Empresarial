@@ -13,7 +13,20 @@ class UserValidatorTest {
 
         // Act and Assert
         assertThrows(Exception.class, () -> {
+            userValidator.validateName("CamiloGonzalez716");
+        });
+    }
+
+    @Test
+    public void testValidateName_tooShortName() throws Exception {
+        // Arrange
+        UserValidator userValidator = new UserValidator();
+
+        // Act and Assert
+        assertThrows(Exception.class, () -> {
             userValidator.validateName("Camilo716");
         });
     }
+
+
 }
