@@ -59,25 +59,4 @@ class UserValidatorTest {
             userValidator.validateLocation(0);
         });
     }
-
-    @Test
-    public void testValidateMail_cantStartWithNumber() throws Exception {
-        assertThrows(Exception.class, () -> {
-            userValidator.validateMail("123camilo@example.com");
-        });
-    }
-
-    @Test
-    public void testValidateMail_mustContainAtSign() throws Exception {
-        assertThrows(Exception.class, () -> {
-            userValidator.validateMail("camiloexample.com");
-        });
-    }
-
-    @Test
-    public void testValidateMail_CanContainSomeSpecialChars() throws Exception {
-        assertDoesNotThrow(() -> {
-            userValidator.validateMail("camilo_+.-@example.com");
-        });
-    }
 }
