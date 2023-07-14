@@ -12,8 +12,8 @@ public class Company {
     private String name;
     private LocalDate location;
 
-    IValidable<String> lengthBetween0And10;
-    IValidable<String> lengthBetween0And30;
+    IValidable<String> lengthBetween0And10Validator;
+    IValidable<String> lengthBetween0And30Validator;
 
     public Company(Integer id, String nit, String name, LocalDate location, String description) {
         this.id = id;
@@ -22,8 +22,8 @@ public class Company {
         this.location = location;
         this.description = description;
 
-        lengthBetween0And10 = new StringRangeValidator(0,10);
-        lengthBetween0And30 = new StringRangeValidator(0,30);
+        lengthBetween0And10Validator = new StringRangeValidator(0,10);
+        lengthBetween0And30Validator = new StringRangeValidator(0,30);
     }
 
     public Integer getId() {
@@ -40,7 +40,7 @@ public class Company {
 
     public void setNit(String nit) {
         try {
-            lengthBetween0And10.validate(nit);
+            lengthBetween0And10Validator.validate(nit);
             this.nit = nit;
         }
         catch (Exception ex){
@@ -62,7 +62,7 @@ public class Company {
 
     public void setName(String name) {
         try {
-            lengthBetween0And30.validate(nit);
+            lengthBetween0And30Validator.validate(nit);
             this.name = name;
         }
         catch (Exception ex){
