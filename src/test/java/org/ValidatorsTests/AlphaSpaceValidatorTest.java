@@ -15,7 +15,7 @@ public class AlphaSpaceValidatorTest {
     }
 
     @Test
-    public void testCantContainNumbers() throws Exception {
+    public void testCannotContainNumbers() throws Exception {
         assertThrows(Exception.class, () -> {
             alphaSpaceValidator.validate("CamiloGonzalez716");
         });

@@ -15,7 +15,7 @@ class MailValidatorTest {
     }
 
     @Test
-    public void testCantStartWithNumber() throws Exception {
+    public void testCannotStartWithNumber() throws Exception {
         assertThrows(Exception.class, () -> {
             mailValidator.validate("123camilo@example.com");
         });
