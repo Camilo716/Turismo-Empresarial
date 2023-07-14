@@ -12,8 +12,8 @@ public class StringRangeValidator implements  IValidable<String> {
 
     @Override
     public Boolean validate(String str) throws Exception {
-        boolean tooShort = str.length() < minLength;
-        boolean tooLong = str.length() < maxLength;
+        boolean tooShort = str.length() <= minLength;
+        boolean tooLong = str.length() > maxLength;
 
         if (tooShort) {
             throw new Exception("String is too short");
