@@ -12,8 +12,8 @@ public class User {
     private String mail;
 
     private final IValidable<String> alphaSpaceValidator;
-    private final IValidable<String> stringRangeValidator;
-    private final IValidable<Double> numberRangeValidator;
+    private final IValidable<String> minLength10Validator;
+    private final IValidable<Double> rangeBetween1And4Validator;
     private final IValidable<String> mailValidator;
 
     public User(Integer id, String name, String document, Integer location, String mail) {
@@ -24,8 +24,8 @@ public class User {
         this.mail = mail;
 
         alphaSpaceValidator = new AlphaSpaceValidator();
-        stringRangeValidator = new StringRangeValidator(10, Integer.MAX_VALUE);
-        numberRangeValidator = new NumRangeValidator(1.0, 4.0);
+        minLength10Validator = new StringRangeValidator(10, Integer.MAX_VALUE);
+        rangeBetween1And4Validator = new NumRangeValidator(1.0, 4.0);
         mailValidator = new MailValidator();
     }
 
@@ -43,7 +43,7 @@ public class User {
 
     public void setName(String name) {
         try{
-            stringRangeValidator.validate(name);
+            minLength10Validator.validate(name);
             alphaSpaceValidator.validate(name);
             this.name = name;
         }
@@ -66,7 +66,7 @@ public class User {
 
     public void setLocationNum(Integer locationNum) {
         try {
-            numberRangeValidator.validate(locationNum.doubleValue());
+            rangeBetween1And4Validator.validate(locationNum.doubleValue());
             this.locationNum = locationNum;
         }
         catch (Exception ex){

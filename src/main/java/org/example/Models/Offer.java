@@ -1,5 +1,6 @@
 package org.example.Models;
 import org.example.Validators.IValidable;
+import org.example.Validators.StringRangeValidator;
 
 import java.time.LocalDate;
 
@@ -14,6 +15,7 @@ public class Offer {
 
     private Integer localId;
 
+    private final IValidable<String> lengthBetween0And20Validator;
 
     public Offer(Integer id, String tittle, String description, LocalDate startDate, LocalDate endDate, Double costPerPerson, Integer idLocal) {
         this.id = id;
@@ -22,6 +24,8 @@ public class Offer {
         this.startDate = startDate;
         this.endDate = endDate;
         this.costPerPerson = costPerPerson;
+
+        lengthBetween0And20Validator = new StringRangeValidator(0,20);
     }
 
     public Integer getId() {
@@ -37,7 +41,13 @@ public class Offer {
     }
 
     public void setTittle(String tittle) {
-        this.tittle = tittle;
+        try{
+            lengthBetween0And20Validator.validate(tittle);
+            this.tittle = tittle;
+        }
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public String getDescription() {
