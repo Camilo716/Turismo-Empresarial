@@ -24,9 +24,7 @@ public class User {
         this.mail = mail;
 
         alphaSpaceValidator = new AlphaSpaceValidator();
-        stringRangeValidator = new StringRangeValidator(0, 11);
-
-
+        stringRangeValidator = new StringRangeValidator(0, 10);
     }
 
     public Integer getId() {
@@ -43,9 +41,13 @@ public class User {
 
     public void setName(String name) {
         try{
-
+            stringRangeValidator.validate(name);
+            alphaSpaceValidator.validate(name);
+            this.name = name;
         }
-        this.name = name;
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public String getDocument() {
