@@ -1,10 +1,7 @@
 package org.example.Models;
 
 
-import org.example.Validators.AlphaSpaceValidator;
-import org.example.Validators.IValidable;
-import org.example.Validators.NumRangeValidator;
-import org.example.Validators.StringRangeValidator;
+import org.example.Validators.*;
 
 public class User {
 
@@ -17,6 +14,7 @@ public class User {
     IValidable<String> alphaSpaceValidator;
     IValidable<String> stringRangeValidator;
     IValidable<Double> numberRangeValidator;
+    IValidable<String> mailValidator;
 
     public User(Integer id, String name, String document, Integer location, String mail) {
         this.id = id;
@@ -28,7 +26,7 @@ public class User {
         alphaSpaceValidator = new AlphaSpaceValidator();
         stringRangeValidator = new StringRangeValidator(10, Integer.MAX_VALUE);
         numberRangeValidator = new NumRangeValidator(1.0, 4.0);
-
+        mailValidator = new MailValidator();
     }
 
     public Integer getId() {
@@ -81,7 +79,13 @@ public class User {
     }
 
     public void setMail(String mail) {
-        this.mail = mail;
+        try {
+            mailValidator.validate(mail);
+            this.mail = mail;
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }
 
