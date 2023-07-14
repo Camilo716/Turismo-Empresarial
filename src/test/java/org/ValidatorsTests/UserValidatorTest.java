@@ -70,13 +70,13 @@ class UserValidatorTest {
     @Test
     public void testValidateMail_mustContainAtSign() throws Exception {
         assertThrows(Exception.class, () -> {
-            userValidator.validateMail("camilo@example.com");
+            userValidator.validateMail("camiloexample.com");
         });
     }
 
     @Test
     public void testValidateMail_CanContainSomeSpecialChars() throws Exception {
-        assertThrows(Exception.class, () -> {
+        assertDoesNotThrow(() -> {
             userValidator.validateMail("camilo_+.-@example.com");
         });
     }
