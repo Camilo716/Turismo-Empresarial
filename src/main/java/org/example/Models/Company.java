@@ -1,5 +1,8 @@
 package org.example.Models;
 
+import org.example.Validators.IValidable;
+import org.example.Validators.StringRangeValidator;
+
 import java.time.LocalDate;
 
 public class Company {
@@ -9,12 +12,18 @@ public class Company {
     private String name;
     private LocalDate location;
 
+    IValidable<String> lengthBetween0And10;
+    IValidable<String> lengthBetween0And30;
+
     public Company(Integer id, String nit, String name, LocalDate location, String description) {
         this.id = id;
         this.nit = nit;
         this.name = name;
         this.location = location;
         this.description = description;
+
+        lengthBetween0And10 = new StringRangeValidator(0,10);
+        lengthBetween0And30 = new StringRangeValidator(0,30);
     }
 
     public Integer getId() {
@@ -30,7 +39,13 @@ public class Company {
     }
 
     public void setNit(String nit) {
-        this.nit = nit;
+        try {
+            lengthBetween0And10.validate(nit);
+            this.nit = nit;
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     public String getDescription() {
