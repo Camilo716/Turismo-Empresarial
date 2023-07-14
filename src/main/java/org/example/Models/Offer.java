@@ -1,20 +1,16 @@
 package org.example.Models;
+import org.example.Validators.IValidable;
+
 import java.time.LocalDate;
 
 
 public class Offer {
     private Integer id;
-
     private  String tittle;
-
     private  String description;
-
     private LocalDate startDate;
-
     private LocalDate endDate;
-
     private Double costPerPerson;
-
 
     private Integer localId;
 

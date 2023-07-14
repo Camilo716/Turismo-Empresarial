@@ -11,10 +11,10 @@ public class User {
     private Integer locationNum;
     private String mail;
 
-    IValidable<String> alphaSpaceValidator;
-    IValidable<String> stringRangeValidator;
-    IValidable<Double> numberRangeValidator;
-    IValidable<String> mailValidator;
+    private IValidable<String> alphaSpaceValidator;
+    private IValidable<String> stringRangeValidator;
+    private IValidable<Double> numberRangeValidator;
+    private IValidable<String> mailValidator;
 
     public User(Integer id, String name, String document, Integer location, String mail) {
         this.id = id;
