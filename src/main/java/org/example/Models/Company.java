@@ -61,7 +61,13 @@ public class Company {
     }
 
     public void setName(String name) {
-        this.name = name;
+        try {
+            lengthBetween0And30.validate(nit);
+            this.name = name;
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     public LocalDate getLocation() {
