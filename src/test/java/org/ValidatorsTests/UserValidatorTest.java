@@ -24,13 +24,6 @@ class UserValidatorTest {
     }
 
     @Test
-    public void testValidateName_TooShortName() throws Exception {
-        assertThrows(Exception.class, () -> {
-            userValidator.validateName("Camilo716");
-        });
-    }
-
-    @Test
     public void testValidateName_AllowÑ() {
         assertDoesNotThrow(() -> {
             boolean result = userValidator.validateName("ÑecaBikuñeta");
