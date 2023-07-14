@@ -16,6 +16,4 @@ public class NumRangeValidatorTest {
             numRangeValidator.validate(5.0);
         });
     }
-
-
 }

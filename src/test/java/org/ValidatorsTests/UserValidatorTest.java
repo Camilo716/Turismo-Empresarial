@@ -45,18 +45,4 @@ class UserValidatorTest {
             assertTrue(result);
         });
     }
-
-    @Test
-    public void testValidateLocation_Above4() throws Exception {
-        assertThrows(Exception.class, () -> {
-            userValidator.validateLocation(5);
-        });
-    }
-
-    @Test
-    public void testValidateLocation_Below1() throws Exception {
-        assertThrows(Exception.class, () -> {
-            userValidator.validateLocation(0);
-        });
-    }
 }

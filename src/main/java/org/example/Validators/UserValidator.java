@@ -14,18 +14,5 @@ public class UserValidator {
             throw new Exception("Name is too short");
         }
         return true;
-
-    }
-
-    public Boolean validateLocation(int locationNumber) throws Exception {
-        boolean isHigherThan4 = locationNumber > 4;
-        boolean isLowerThan1 = locationNumber < 1;
-
-        if (isHigherThan4){
-            throw new Exception("Location can't be higher than 4");
-        } else if (isLowerThan1) {
-            throw new Exception("Location can't be lower than 1");
-        }
-        return true;
     }
 }
