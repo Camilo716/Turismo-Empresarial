@@ -15,21 +15,21 @@ class MailValidatorTest {
     }
 
     @Test
-    public void testvalidate_cantStartWithNumber() throws Exception {
+    public void cantStartWithNumber() throws Exception {
         assertThrows(Exception.class, () -> {
             mailValidator.validate("123camilo@example.com");
         });
     }
 
     @Test
-    public void testvalidate_mustContainAtSign() throws Exception {
+    public void mustContainAtSign() throws Exception {
         assertThrows(Exception.class, () -> {
             mailValidator.validate("camiloexample.com");
         });
     }
 
     @Test
-    public void testvalidate_CanContainSomeSpecialChars() throws Exception {
+    public void canContainSomeSpecialChars() throws Exception {
         assertDoesNotThrow(() -> {
             mailValidator.validate("camilo_+.-@example.com");
         });
