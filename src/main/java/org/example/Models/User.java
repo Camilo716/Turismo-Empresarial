@@ -1,6 +1,10 @@
 package org.example.Models;
 
 
+import org.example.Validators.AlphaSpaceValidator;
+import org.example.Validators.IValidable;
+import org.example.Validators.StringRangeValidator;
+
 public class User {
 
     private Integer id;
@@ -9,12 +13,20 @@ public class User {
     private Integer location;
     private String mail;
 
+    IValidable<String> alphaSpaceValidator;
+    IValidable<String> stringRangeValidator;
+
     public User(Integer id, String name, String document, Integer location, String mail) {
         this.id = id;
         this.name = name;
         this.document = document;
         this.location = location;
         this.mail = mail;
+
+        alphaSpaceValidator = new AlphaSpaceValidator();
+        stringRangeValidator = new StringRangeValidator(0, 11);
+
+
     }
 
     public Integer getId() {
@@ -30,6 +42,9 @@ public class User {
     }
 
     public void setName(String name) {
+        try{
+
+        }
         this.name = name;
     }
 
