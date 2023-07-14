@@ -12,8 +12,8 @@ public class Company {
     private String name;
     private LocalDate location;
 
-    private IValidable<String> lengthBetween0And10Validator;
-    private IValidable<String> lengthBetween0And30Validator;
+    private final IValidable<String> lengthBetween0And10Validator;
+    private final IValidable<String> lengthBetween0And30Validator;
 
     public Company(Integer id, String nit, String name, LocalDate location, String description) {
         this.id = id;
