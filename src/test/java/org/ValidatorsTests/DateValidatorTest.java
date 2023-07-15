@@ -17,15 +17,20 @@ public class DateValidatorTest {
     }
 
     @Test
-    public void testValidDate() {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String dateString = "31/12/2022";
-        LocalDate validDate = LocalDate.parse(dateString, dateFormatter);
+    public void testInvalidFormat() {
+        String dateString = "2022/12/31";
 
-        String formattedDate = validDate.format(dateFormatter);
+        assertThrows(Exception.class, () -> {
+            dateValidator.validate(dateString);
+        });
+    }
+
+    @Test
+    public void testValidDate() {
+        String dateString = "31/12/2022";
 
         assertDoesNotThrow(() -> {
-            dateValidator.validate(formattedDate);
+            dateValidator.validate(dateString);
         });
     }
 

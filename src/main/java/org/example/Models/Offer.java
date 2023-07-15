@@ -82,8 +82,15 @@ public class Offer {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
+    public void setEndDate(String endDate) {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        try{
+            formatDateValidator.validate(endDate);
+            this.endDate = LocalDate.parse(endDate, dateFormatter);
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     public Double getCostPerPerson() {
