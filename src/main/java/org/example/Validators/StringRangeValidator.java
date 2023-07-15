@@ -15,11 +15,11 @@ public class StringRangeValidator implements  IValidable<String> {
         boolean tooShort = str.length() <= minLength;
         boolean tooLong = str.length() > maxLength;
 
-        if (tooShort) {
+        if (tooShort)
             throw new Exception("String is too short");
-        } else if (tooLong) {
+        if (tooLong)
             throw new Exception("String is too long");
-        }
+
         return true;
     }
 }

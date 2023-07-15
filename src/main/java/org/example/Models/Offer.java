@@ -86,7 +86,10 @@ public class Offer {
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try{
             formatDateValidator.validate(endDate);
-            this.endDate = LocalDate.parse(endDate, dateFormatter);
+            LocalDate parsedDate = LocalDate.parse(endDate, dateFormatter);
+
+            if (parsedDate.isAfter(this.startDate))
+                this.endDate = parsedDate;
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());

@@ -10,13 +10,13 @@ public class MailValidator implements IValidable<String> {
         boolean startWithNumber = Character.isDigit(mail.charAt(0));
         boolean doesNotContainAtSign = !mail.contains("@");
 
-        if (notMatchesPattern){
+        if (notMatchesPattern)
             throw new Exception("Must be a valid mail");
-        } else if (startWithNumber) {
+        if (startWithNumber)
             throw new Exception("Mail can't start with number");
-        } else if (doesNotContainAtSign) {
+        if (doesNotContainAtSign)
             throw new Exception("Mail must contain at sign");
-        }
+
         return true;
     }
 }

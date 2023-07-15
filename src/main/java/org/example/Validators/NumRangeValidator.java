@@ -14,11 +14,11 @@ public class NumRangeValidator implements IValidable<Double>{
         boolean isHigherThan4 = num > this.maxNum;
         boolean isLowerThan1 = num < this.minNum;
 
-        if (isHigherThan4){
+        if (isHigherThan4)
             throw new Exception(String.format("Number can't be higher than %f", this.maxNum));
-        } else if (isLowerThan1) {
+        if (isLowerThan1)
             throw new Exception(String.format("Number can't be lower than %f", this.minNum));
-        }
+
         return true;
     }
 }

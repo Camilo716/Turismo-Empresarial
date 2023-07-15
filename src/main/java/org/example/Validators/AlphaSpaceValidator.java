@@ -10,6 +10,7 @@ public class AlphaSpaceValidator implements IValidable<String>{
 
         if (notMatchesPattern)
             throw new Exception("Name can´t contain numbers or symbols");
+
         return true;
     }
 }
