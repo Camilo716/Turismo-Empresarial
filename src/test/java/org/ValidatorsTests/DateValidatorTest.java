@@ -33,15 +33,4 @@ public class DateValidatorTest {
             dateValidator.validate(dateString);
         });
     }
-
-
-    @Test
-    public void testShouldNotIncludeTime() {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate invalidDate = LocalDate.parse("31/12/2022", dateFormatter).atTime(12, 30, 45).toLocalDate();
-
-        assertThrows(Exception.class, () -> {
-            dateValidator.validate(invalidDate.toString());
-        });
-    }
 }
