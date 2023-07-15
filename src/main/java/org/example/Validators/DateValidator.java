@@ -1,22 +1,17 @@
 package org.example.Validators;
 
 import jdk.jshell.spi.ExecutionControl;
+import org.example.Util.DateParser;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class DateValidator implements IValidable<String>{
-    private DateTimeFormatter dateFormatter;
-
-    public DateValidator() {
-        dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    }
-
     @Override
     public Boolean validate(String dateString) throws Exception {
         try {
-            LocalDate date = LocalDate.parse(dateString, dateFormatter);
+            LocalDate parsedDate = DateParser.fromStringToDate(dateString, "dd/MM/yyyy");
             return true;
         } catch (Exception e) {
             throw new Exception("Date is not in the correct format (dd//MM/yyyy)");
