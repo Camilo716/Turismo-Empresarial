@@ -69,10 +69,9 @@ public class Offer {
     }
 
     public void setStartDate(String startDate) {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try{
             formatDateValidator.validate(startDate);
-            this.startDate = LocalDate.parse(startDate, dateFormatter);
+            this.startDate = DateParser.fromStringToDate(startDate, "dd/MM/yyyy");
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());
