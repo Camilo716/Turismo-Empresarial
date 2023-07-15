@@ -1,5 +1,6 @@
 package org.ValidatorsTests;
 
+import org.example.Util.DateParser;
 import org.example.Validators.DateValidator;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
@@ -39,9 +40,8 @@ public class DateValidatorTest {
     @Test
     public void testEndDateShouldBeAfterStartDate()
     {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate beforeDate = LocalDate.parse("10/03/2022", dateFormatter);
-        LocalDate afterDate = LocalDate.parse("30/12/2023", dateFormatter);
+        LocalDate beforeDate = DateParser.fromStringToDate("10/03/2022", "dd/MM/yyyy");
+        LocalDate afterDate = DateParser.fromStringToDate("30/12/2023", "dd/MM/yyyy");
 
         assertThrows(Exception.class, () -> {
             DateValidator.date1_isAfter_date2(beforeDate, afterDate);

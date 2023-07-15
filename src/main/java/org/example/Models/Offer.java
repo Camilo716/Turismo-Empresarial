@@ -1,4 +1,5 @@
 package org.example.Models;
+import org.example.Util.DateParser;
 import org.example.Validators.DateValidator;
 import org.example.Validators.IValidable;
 import org.example.Validators.StringRangeValidator;
@@ -83,14 +84,10 @@ public class Offer {
     }
 
     public void setEndDate(String endDate) {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try{
             formatDateValidator.validate(endDate);
-
-            LocalDate parsedDate = LocalDate.parse(endDate, dateFormatter);
-
+            LocalDate parsedDate = DateParser.fromStringToDate(endDate, "dd/MM/yyyy");
             DateValidator.date1_isAfter_date2(parsedDate, this.startDate);
-
             this.endDate = parsedDate;
         }
         catch (Exception ex){
