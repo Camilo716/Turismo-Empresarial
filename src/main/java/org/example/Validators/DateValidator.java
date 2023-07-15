@@ -23,7 +23,10 @@ public class DateValidator implements IValidable<String>{
         }
     }
 
-//    public static boolean Date1_isAfter_Date2(LocalDate)
-//    {
-//    }
+    public static boolean date1_isAfter_date2(LocalDate dateAfter, LocalDate dateBefore) throws Exception {
+        if (dateBefore.isAfter(dateAfter))
+            throw new Exception("End date should be after start date");
+
+        return true;
+    }
 }
