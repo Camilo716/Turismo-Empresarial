@@ -56,7 +56,8 @@ public class Reservation {
     }
 
     public void setTotalCost(Double totalCost) {
-        this.totalCost = totalCost;
+        final double IVA = 0.19;
+        this.totalCost = totalCost * IVA;
     }
 
     public LocalDate getReservationDate() {
