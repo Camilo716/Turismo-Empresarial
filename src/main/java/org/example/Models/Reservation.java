@@ -1,5 +1,9 @@
 package org.example.Models;
 
+import org.example.Util.DateParser;
+import org.example.Validators.DateValidator;
+import org.example.Validators.IValidable;
+
 import java.time.LocalDate;
 
 public class Reservation {
@@ -11,6 +15,7 @@ public class Reservation {
     private Integer userId;
     private Integer offerId;
 
+    IValidable<String> dateFormatValidator;
 
     public Reservation(Integer id, Integer userId, Integer offerId, Double totalCost, LocalDate reservationDate) {
         this.id = id;
@@ -18,6 +23,8 @@ public class Reservation {
         this.offerId = offerId;
         this.totalCost = totalCost;
         this.reservationDate = reservationDate;
+
+        dateFormatValidator = new DateValidator();
     }
 
     public Integer getId() {
@@ -56,7 +63,13 @@ public class Reservation {
         return reservationDate;
     }
 
-    public void setReservationDate(LocalDate reservationDate) {
-        this.reservationDate = reservationDate;
+    public void setReservationDate(String reservationDate) {
+        try{
+            dateFormatValidator.validate(reservationDate);
+            this.reservationDate = DateParser.fromStringToDate(reservationDate, "dd/MM/yyyy");
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }
