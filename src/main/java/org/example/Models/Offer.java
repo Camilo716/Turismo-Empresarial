@@ -1,8 +1,11 @@
 package org.example.Models;
+import org.example.Validators.DateValidator;
 import org.example.Validators.IValidable;
 import org.example.Validators.StringRangeValidator;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 
 public class Offer {
@@ -16,6 +19,7 @@ public class Offer {
     private Integer localId;
 
     private final IValidable<String> lengthBetween0And20Validator;
+    private IValidable<String> formatDateValidator;
 
     public Offer(Integer id, String tittle, String description, LocalDate startDate, LocalDate endDate, Double costPerPerson, Integer idLocal) {
         this.id = id;
@@ -26,6 +30,7 @@ public class Offer {
         this.costPerPerson = costPerPerson;
 
         lengthBetween0And20Validator = new StringRangeValidator(0,20);
+        formatDateValidator = new DateValidator();
     }
 
     public Integer getId() {
@@ -62,8 +67,15 @@ public class Offer {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
+    public void setStartDate(String startDate) {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        try{
+            formatDateValidator.validate(startDate);
+            this.startDate = LocalDate.parse(startDate, dateFormatter);
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     public LocalDate getEndDate() {
