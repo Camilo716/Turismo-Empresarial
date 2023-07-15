@@ -2,6 +2,7 @@ package org.example.Models;
 import org.example.Util.DateParser;
 import org.example.Validators.DateValidator;
 import org.example.Validators.IValidable;
+import org.example.Validators.NumRangeValidator;
 import org.example.Validators.StringRangeValidator;
 
 import java.time.LocalDate;
@@ -20,7 +21,8 @@ public class Offer {
     private Integer localId;
 
     private final IValidable<String> lengthBetween0And20Validator;
-    private IValidable<String> formatDateValidator;
+    private final IValidable<String> formatDateValidator;
+    private final IValidable<Double> positiveNumberValidator;
 
     public Offer(Integer id, String tittle, String description, LocalDate startDate, LocalDate endDate, Double costPerPerson, Integer idLocal) {
         this.id = id;
@@ -32,6 +34,7 @@ public class Offer {
 
         lengthBetween0And20Validator = new StringRangeValidator(0,20);
         formatDateValidator = new DateValidator();
+        positiveNumberValidator = new NumRangeValidator(0.0, Double.MAX_VALUE);
     }
 
     public Integer getId() {
@@ -99,7 +102,13 @@ public class Offer {
     }
 
     public void setCostPerPerson(Double costPerPerson) {
-        this.costPerPerson = costPerPerson;
+        try{
+            positiveNumberValidator.validate(costPerPerson);
+            this.costPerPerson = costPerPerson;
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     public Integer getLocalId() {
