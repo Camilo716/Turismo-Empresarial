@@ -40,8 +40,8 @@ public class DateValidatorTest {
     public void testEndDateShouldBeAfterStartDate()
     {
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate beforeDate = LocalDate.parse("2022/3/10", dateFormatter);
-        LocalDate afterDate = LocalDate.parse("2023/14/30", dateFormatter);
+        LocalDate beforeDate = LocalDate.parse("10/03/2022", dateFormatter);
+        LocalDate afterDate = LocalDate.parse("30/12/2023", dateFormatter);
 
         assertThrows(Exception.class, () -> {
             DateValidator.date1_isAfter_date2(beforeDate, afterDate);
