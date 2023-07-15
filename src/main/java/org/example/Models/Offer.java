@@ -90,6 +90,7 @@ public class Offer {
 
             if (parsedDate.isAfter(this.startDate))
                 this.endDate = parsedDate;
+            else throw new Exception("End date should be after start date");
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());

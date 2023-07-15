@@ -1,5 +1,7 @@
 package org.example.Validators;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -20,4 +22,8 @@ public class DateValidator implements IValidable<String>{
             throw new Exception("Date is not in the correct format (dd//MM/yyyy)");
         }
     }
+
+//    public static boolean Date1_isAfter_Date2(LocalDate)
+//    {
+//    }
 }
