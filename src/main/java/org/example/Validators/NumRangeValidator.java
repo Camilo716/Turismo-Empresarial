@@ -11,12 +11,12 @@ public class NumRangeValidator implements IValidable<Double>{
 
     @Override
     public Boolean validate(Double num) throws Exception {
-        boolean isHigherThan4 = num > this.maxNum;
-        boolean isLowerThan1 = num < this.minNum;
+        boolean isHigherThanMaxNum = num > this.maxNum;
+        boolean isLowerThanMinNum = num < this.minNum;
 
-        if (isHigherThan4)
+        if (isHigherThanMaxNum)
             throw new Exception(String.format("Number can't be higher than %f", this.maxNum));
-        if (isLowerThan1)
+        if (isLowerThanMinNum)
             throw new Exception(String.format("Number can't be lower than %f", this.minNum));
 
         return true;
