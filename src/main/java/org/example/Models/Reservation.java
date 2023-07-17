@@ -3,8 +3,11 @@ package org.example.Models;
 import org.example.Util.DateParser;
 import org.example.Validators.DateValidator;
 import org.example.Validators.IValidable;
+import org.example.Validators.ListSizeRangeValidator;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Reservation {
 
@@ -15,7 +18,10 @@ public class Reservation {
     private Integer userId;
     private Integer offerId;
 
+    private List<User> users = new ArrayList<>();
+
     IValidable<String> dateFormatValidator;
+    IValidable<List<User>> max4UsersValidator;
 
     public Reservation(Integer id, Integer userId, Integer offerId, Double totalCost, LocalDate reservationDate) {
         this.id = id;
@@ -25,6 +31,7 @@ public class Reservation {
         this.reservationDate = reservationDate;
 
         dateFormatValidator = new DateValidator();
+        max4UsersValidator = new ListSizeRangeValidator(0, 4);
     }
 
     public Integer getId() {
@@ -70,6 +77,20 @@ public class Reservation {
             this.reservationDate = DateParser.fromStringToDate(reservationDate, "dd/MM/yyyy");
         }
         catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void SetNewUser(User user) throws Exception {
+        try {
+            max4UsersValidator.validate(this.users);
+            users.add(user);
+        }
+        catch(Exception ex){
             System.out.println(ex.getMessage());
         }
     }
