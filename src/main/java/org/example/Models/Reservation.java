@@ -64,6 +64,10 @@ public class Reservation {
 
     public void setTotalCost(Double totalCost) {
         final double IVA = 0.19;
+
+        for (User user : this.users) {
+            totalCost+=offerId; // Price search per person according to offer id not implemented
+        }
         this.totalCost = totalCost * IVA;
     }
 
