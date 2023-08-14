@@ -1,5 +1,6 @@
 package org.example.Models;
 
+import org.example.Models.AbstractEntities.User;
 import org.example.Util.DateParser;
 import org.example.Validators.DateValidator;
 import org.example.Validators.IValidable;

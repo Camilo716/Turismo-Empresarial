@@ -1,7 +1,5 @@
 package org.example.Validators;
 
-import org.example.Models.User;
-
 import java.util.List;
 
 public class ListSizeRangeValidator<T> implements  IValidable<List<T>>{
@@ -18,7 +16,7 @@ public class ListSizeRangeValidator<T> implements  IValidable<List<T>>{
         boolean maxSizeReached = users.size() <= maxSize;
 
         if (maxSizeReached)
-            throw new Exception("Users per reservation can be higher than " + maxSize);
+            throw new Exception("Users per reservation can not be higher than " + maxSize);
 
         return true;
     }

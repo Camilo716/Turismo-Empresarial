@@ -1,15 +1,17 @@
-package org.example.Models;
+package org.example.Models.AbstractEntities;
 
 
 import org.example.Validators.*;
 
-public class User {
+public abstract class User {
 
     private Integer id;
     private String name;
     private String document;
     private Integer locationNum;
     private String mail;
+    private final Double anualCost = 120000d;
+    private final Double monthlyCost = 35000d;
 
     private final IValidable<String> alphaSpaceValidator;
     private final IValidable<String> minLength10Validator;
@@ -87,5 +89,7 @@ public class User {
             System.out.println(ex.getMessage());
         }
     }
+
+    public abstract Double calculateAnnualPayment();
 }
 
