@@ -1,8 +1,9 @@
 package org.example.Models;
 
 import org.example.Models.AbstractEntities.User;
+import org.example.Models.EntitiesOperations.IReportable;
 
-public class AffiliateUser extends User implements IReportable{
+public class AffiliateUser extends User implements IReportable {
 
     public AffiliateUser(Integer id, String name, String document, Integer location, String mail) {
         super(id, name, document, location, mail);
