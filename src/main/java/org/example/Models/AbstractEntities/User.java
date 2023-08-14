@@ -10,8 +10,8 @@ public abstract class User {
     private String document;
     private Integer locationNum;
     private String mail;
-    private final Double anualCost = 120000d;
-    private final Double monthlyCost = 35000d;
+    protected final Double anualCost = 120000d;
+    protected final Double monthlyCost = 35000d;
 
     private final IValidable<String> alphaSpaceValidator;
     private final IValidable<String> minLength10Validator;

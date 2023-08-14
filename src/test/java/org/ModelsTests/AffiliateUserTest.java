@@ -36,4 +36,12 @@ class AffiliateUserTest {
                 "1,Camilo Gonzalez,1023423123,3,camilogonzalez@example.org\n";
         assertEquals(reportExpected, report);
     }
+
+    @Test
+    void testDiscountGeneration(){
+        Double anualPriceDiscounted = affiliateUser.generateDiscount();
+
+        Double anualPriceExpected = 113000d;
+        assertEquals(anualPriceExpected, anualPriceDiscounted);
+    }
 }
