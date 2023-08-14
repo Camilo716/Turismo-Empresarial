@@ -6,6 +6,8 @@ import org.example.Models.EntitiesOperations.IReportable;
 
 public class AffiliateUser extends User implements IReportable, IDiscountable {
 
+    protected final Double monthlyCost = 35000d;
+
     public AffiliateUser(Integer id, String name, String document, Integer location, String mail) {
         super(id, name, document, location, mail);
     }
