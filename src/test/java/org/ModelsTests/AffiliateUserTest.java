@@ -28,7 +28,7 @@ class AffiliateUserTest {
     }
 
     @Test
-    void testReportGeneration(){
+    void testCSVReportGeneration(){
         String report = affiliateUser.generateReportCSV();
 
         String reportExpected =

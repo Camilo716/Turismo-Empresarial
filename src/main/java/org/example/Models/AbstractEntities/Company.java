@@ -1,26 +1,24 @@
-package org.example.Models;
+package org.example.Models.AbstractEntities;
 
 import org.example.Validators.IValidable;
 import org.example.Validators.StringRangeValidator;
 
 import java.time.LocalDate;
 
-public class Company {
+public abstract class Company {
     private Integer id;
     private String nit;
-    private String description;
     private String name;
     private LocalDate location;
 
     private final IValidable<String> lengthBetween0And10Validator;
     private final IValidable<String> lengthBetween0And30Validator;
 
-    public Company(Integer id, String nit, String name, LocalDate location, String description) {
+    public Company(Integer id, String nit, String name, LocalDate location) {
         this.id = id;
         this.nit = nit;
         this.name = name;
         this.location = location;
-        this.description = description;
 
         lengthBetween0And10Validator = new StringRangeValidator(0,10);
         lengthBetween0And30Validator = new StringRangeValidator(0,30);
@@ -46,14 +44,6 @@ public class Company {
         catch (Exception ex){
             System.out.println(ex.getMessage());
         }
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getName() {
