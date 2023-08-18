@@ -53,4 +53,25 @@ public class PrivateCompany extends Company {
             System.out.println(ex.getMessage());
         }
     }
+
+    public String generateReportCSV() {
+        StringBuilder csvBuilder = new StringBuilder();
+
+        csvBuilder.append("id,nit,name,location,idLegalRepresentative,nameLegalRepresentative\n");
+        csvBuilder.append(formatUserCSV(this));
+
+        return csvBuilder.toString();
+    }
+
+    private static String formatUserCSV(PrivateCompany company) {
+        return String.format(
+                "%d,%s,%s,%s,%d,%s\n",
+                company.getId(),
+                company.getNit(),
+                company.getName(),
+                company.getLocation(),
+                company.getIdLegalRepresentative(),
+                company.getNameLegalRepresentative()
+        );
+    }
 }
