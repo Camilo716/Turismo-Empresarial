@@ -3,6 +3,7 @@ package org.example.Models;
 import org.example.Models.AbstractEntities.Company;
 import org.example.Validators.IValidable;
 import org.example.Validators.NumRangeValidator;
+import org.example.Validators.StringRangeValidator;
 
 import java.time.LocalDate;
 
@@ -12,6 +13,7 @@ public class PrivateCompany extends Company {
     private String nameLegalRepresentative;
 
     private final IValidable<Double> positiveNumberValidator;
+    private final IValidable<String> min15CharValidator;
 
     public PrivateCompany(Integer id, String nit, String name, LocalDate location,
                           Integer idLegalRepresentative, String nameLegalRepresentative) {
@@ -20,6 +22,7 @@ public class PrivateCompany extends Company {
         this.nameLegalRepresentative = nameLegalRepresentative;
 
         positiveNumberValidator = new NumRangeValidator(1.0, Double.MAX_VALUE);
+        min15CharValidator = new StringRangeValidator(16, Integer.MAX_VALUE);
     }
 
 
@@ -42,6 +45,12 @@ public class PrivateCompany extends Company {
     }
 
     public void setNameLegalRepresentative(String nameLegalRepresentative) {
-        nameLegalRepresentative = nameLegalRepresentative;
+        try{
+            min15CharValidator.validate(nameLegalRepresentative);
+            this.nameLegalRepresentative = nameLegalRepresentative;
+        }
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
