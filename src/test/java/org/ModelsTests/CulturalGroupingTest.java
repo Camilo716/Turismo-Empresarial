@@ -32,4 +32,12 @@ class CulturalGroupingTest {
                 "1,123123123,Company S.A.S,New York,Description\n";
         assertEquals(reportExpected, report);
     }
+
+    @Test
+    void testDiscountGeneration(){
+        Double anualPriceDiscounted = culturalGrouping.generateDiscount();
+
+        Double anualPriceExpected = 102500d;
+        assertEquals(anualPriceExpected, anualPriceDiscounted);
+    }
 }

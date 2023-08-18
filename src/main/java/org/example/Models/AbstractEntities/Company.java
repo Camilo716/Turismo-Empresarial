@@ -10,6 +10,8 @@ public abstract class Company {
     private String nit;
     private String name;
     private String location;
+    protected final Double anualCost = 120000d;
+    protected final Double monthlyCost = 70000d;
 
     private final IValidable<String> lengthBetween0And10Validator;
     private final IValidable<String> lengthBetween0And30Validator;

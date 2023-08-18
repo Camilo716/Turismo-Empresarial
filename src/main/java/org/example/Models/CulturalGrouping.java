@@ -1,11 +1,12 @@
 package org.example.Models;
 
 import org.example.Models.AbstractEntities.Company;
+import org.example.Models.EntitiesOperations.IDiscountable;
 import org.example.Models.EntitiesOperations.IReportable;
 
 import java.time.LocalDate;
 
-public class CulturalGrouping extends Company implements IReportable {
+public class CulturalGrouping extends Company implements IReportable, IDiscountable {
 
     private String description;
 
@@ -41,5 +42,10 @@ public class CulturalGrouping extends Company implements IReportable {
                 culturalGrouping.getLocation(),
                 culturalGrouping.getDescription()
         );
+    }
+
+    @Override
+    public Double generateDiscount() {
+        return anualCost - monthlyCost * 0.25;
     }
 }

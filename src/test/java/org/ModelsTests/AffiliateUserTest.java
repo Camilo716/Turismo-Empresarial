@@ -22,10 +22,6 @@ class AffiliateUserTest {
         );
     }
 
-    @Test
-    void calculateAnnualPayment() {
-
-    }
 
     @Test
     void testCSVReportGeneration(){
