@@ -27,7 +27,7 @@ class NotAffiliateUserTest {
     }
 
     @Test
-    void testReportGeneration(){
+    void testCsvReportGeneration(){
         String report = notAffiliateUser.generateReportCSV();
 
         String reportExpected =

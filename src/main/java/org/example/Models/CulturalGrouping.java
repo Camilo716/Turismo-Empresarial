@@ -1,10 +1,11 @@
 package org.example.Models;
 
 import org.example.Models.AbstractEntities.Company;
+import org.example.Models.EntitiesOperations.IReportable;
 
 import java.time.LocalDate;
 
-public class CulturalGrouping extends Company {
+public class CulturalGrouping extends Company implements IReportable {
 
     private String description;
 
@@ -22,4 +23,23 @@ public class CulturalGrouping extends Company {
     }
 
 
+    public String generateReportCSV() {
+        StringBuilder csvBuilder = new StringBuilder();
+
+        csvBuilder.append("id,nit,name,location,description\n");
+        csvBuilder.append(formatUserCSV(this));
+
+        return csvBuilder.toString();
+    }
+
+    private static String formatUserCSV(CulturalGrouping culturalGrouping) {
+        return String.format(
+                "%d,%s,%s,%s,%s\n",
+                culturalGrouping.getId(),
+                culturalGrouping.getNit(),
+                culturalGrouping.getName(),
+                culturalGrouping.getLocation(),
+                culturalGrouping.getDescription()
+        );
+    }
 }
