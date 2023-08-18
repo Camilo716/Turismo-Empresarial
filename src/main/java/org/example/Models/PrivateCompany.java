@@ -1,13 +1,14 @@
 package org.example.Models;
 
 import org.example.Models.AbstractEntities.Company;
+import org.example.Models.EntitiesOperations.IReportable;
 import org.example.Validators.IValidable;
 import org.example.Validators.NumRangeValidator;
 import org.example.Validators.StringRangeValidator;
 
 import java.time.LocalDate;
 
-public class PrivateCompany extends Company {
+public class PrivateCompany extends Company implements IReportable {
 
     private Integer idLegalRepresentative;
     private String nameLegalRepresentative;
