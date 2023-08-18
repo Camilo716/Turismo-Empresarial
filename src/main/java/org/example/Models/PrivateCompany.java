@@ -15,7 +15,7 @@ public class PrivateCompany extends Company {
     private final IValidable<Double> positiveNumberValidator;
     private final IValidable<String> min15CharValidator;
 
-    public PrivateCompany(Integer id, String nit, String name, LocalDate location,
+    public PrivateCompany(Integer id, String nit, String name, String location,
                           Integer idLegalRepresentative, String nameLegalRepresentative) {
         super(id, nit, name, location);
         this.idLegalRepresentative = idLegalRepresentative;

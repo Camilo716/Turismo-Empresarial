@@ -8,7 +8,7 @@ public class CulturalGrouping extends Company {
 
     private String description;
 
-    public CulturalGrouping(Integer id, String nit, String name, LocalDate location, String description) {
+    public CulturalGrouping(Integer id, String nit, String name, String location, String description) {
         super(id, nit, name, location);
         this.description = description;
     }

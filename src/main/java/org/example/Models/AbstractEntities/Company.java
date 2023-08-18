@@ -9,12 +9,12 @@ public abstract class Company {
     private Integer id;
     private String nit;
     private String name;
-    private LocalDate location;
+    private String location;
 
     private final IValidable<String> lengthBetween0And10Validator;
     private final IValidable<String> lengthBetween0And30Validator;
 
-    public Company(Integer id, String nit, String name, LocalDate location) {
+    public Company(Integer id, String nit, String name, String location) {
         this.id = id;
         this.nit = nit;
         this.name = name;
@@ -60,11 +60,11 @@ public abstract class Company {
         }
     }
 
-    public LocalDate getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(LocalDate location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 }
