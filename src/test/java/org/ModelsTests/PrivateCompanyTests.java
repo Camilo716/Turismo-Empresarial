@@ -23,11 +23,6 @@ public class PrivateCompanyTests {
     }
 
     @Test
-    void calculateAnnualPayment() {
-
-    }
-
-    @Test
     void testCsvReportGeneration(){
         String report = privateCompany.generateReportCSV();
 
