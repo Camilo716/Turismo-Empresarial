@@ -1,4 +1,4 @@
-package org.example.Models.EntitiesOperations.PrivateCompany;
+package org.example.Models;
 
 import org.example.Models.AbstractEntities.Company;
 
